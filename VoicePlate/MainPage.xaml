@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VoicePlate.MainPage"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="25" HorizontalOptions="Center">
+
+            <!-- Mic Button -->
+            <Frame Padding="0"
+                   CornerRadius="80"
+                   BackgroundColor="#F0F0F0"
+                   HasShadow="True"
+                   WidthRequest="150"
+                   HeightRequest="150"
+                   HorizontalOptions="Center">
+                <ImageButton Source="microphone.png"
+                             Clicked="OnRecordClicked"
+                             BackgroundColor="Transparent"
+                             HeightRequest="150"
+                             WidthRequest="150"
+                             Aspect="AspectFit"
+                             Padding="40"/>
+            </Frame>
+
+            <Label Text="Tap to start recording"
+                   FontSize="16"
+                   TextColor="Gray"
+                   HorizontalTextAlignment="Center" />
+
+            <!-- Summary Editor -->
+            <Frame CornerRadius="12"
+                   BackgroundColor="#F8F8F8"
+                   HasShadow="False"
+                   Padding="10"
+                   WidthRequest="300">
+                <Editor x:Name="EntrySummary"
+                        Placeholder="Add a short summary..."
+                        AutoSize="TextChanges"
+                        BackgroundColor="Transparent"
+                        TextColor="Black"
+                        HeightRequest="100" />
+            </Frame>
+
+            <!-- Larger Icon Buttons (Camera + Speaker) -->
+            <HorizontalStackLayout Spacing="35" HorizontalOptions="Center">
+
+                <!-- Camera Icon -->
+                <Frame WidthRequest="80" HeightRequest="80"
+                       CornerRadius="40"
+                       BackgroundColor="#F5F5F5"
+                       HasShadow="True">
+                    <ImageButton Source="camera.png"
+                                 BackgroundColor="Transparent"
+                                 Clicked="OnCameraClicked"
+                                 WidthRequest="80"
+                                 HeightRequest="80"
+                                 Aspect="AspectFit"
+                                 Padding="15" />
+                </Frame>
+
+                <!-- Speaker Icon -->
+                <Frame WidthRequest="80" HeightRequest="80"
+                       CornerRadius="40"
+                       BackgroundColor="#F5F5F5"
+                       HasShadow="True">
+                    <ImageButton Source="speaker.png"
+                                 BackgroundColor="Transparent"
+                                 Clicked="OnPlayClicked"
+                                 WidthRequest="80"
+                                 HeightRequest="80"
+                                 Aspect="AspectFit"
+                                 Padding="15" />
+                </Frame>
+            </HorizontalStackLayout>
+
+            <!-- Save Entry Button -->
+            <Frame Padding="0"
+                   CornerRadius="20"
+                   BackgroundColor="#6B8E23"
+                   HasShadow="True"
+                   WidthRequest="300"
+                   Margin="0,30,0,0">
+                <Button Text="Save Entry"
+                        Clicked="OnSaveClicked"
+                        BackgroundColor="Transparent"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        Padding="12" />
+            </Frame>
+
+            <!-- View History Button -->
+            <Frame Padding="0"
+                   CornerRadius="20"
+                   BackgroundColor="#6B8E23"
+                   HasShadow="True"
+                   WidthRequest="300"
+                   Margin="0,10,0,30">
+                <Button Text="View History"
+                        Clicked="OnHistoryClicked"
+                        BackgroundColor="Transparent"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        Padding="12" />
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

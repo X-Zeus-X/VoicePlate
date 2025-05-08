@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VoicePlate.EntryDetailPage"
+             Title="Entry Details"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <Label Text="{Binding Title}"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   HorizontalTextAlignment="Center" />
+
+            <Label Text="{Binding Timestamp, StringFormat='{0:dd MMM yyyy, hh:mm tt}'}"
+                   FontSize="14"
+                   TextColor="Gray"
+                   HorizontalTextAlignment="Center" />
+
+            <Frame CornerRadius="16"
+                   Padding="0"
+                   IsVisible="False"
+                   x:Name="PhotoFrame"
+                   HasShadow="True"
+                   BackgroundColor="#F0F0F0"
+                   HeightRequest="200">
+
+                <Image x:Name="PhotoImage"
+                       Aspect="AspectFill" />
+            </Frame>
+
+            <Button Text="▶️ Play Audio"
+                    Clicked="OnPlayAudioClicked"
+                    BackgroundColor="#6B8E23"
+                    TextColor="White"
+                    CornerRadius="12"
+                    Padding="12" />
+
+            <Label Text="{Binding LocationName}"
+                   TextColor="DarkOliveGreen"
+                   FontSize="16"
+                   HorizontalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnLocationTapped" />
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Button Text="🗑️ Delete Entry"
+                    Clicked="OnDeleteClicked"
+                    BackgroundColor="#D9534F"
+                    TextColor="White"
+                    CornerRadius="12"
+                    Padding="12" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
